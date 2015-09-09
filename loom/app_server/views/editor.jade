@@ -1,9 +1,13 @@
 extends layout
 
 block content
-	h1= title
-
-	#editor 
-		p function foo(items) { return bar; } 
-	
-	script(src="javascripts/editor.js")
+	section.row
+		#options.col-md-2
+			ul
+				li option1
+				li option2
+		#editor.col-md-7
+			p function foo(items) { return bar; } 
+		#chat.col-md-3
+			h3 chat
+	script(src="/javascripts/editor.js")
