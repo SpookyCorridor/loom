@@ -4,11 +4,11 @@ var AceSchema = new mongoose.Schema({
 	themes: [],
 	modes: [], 
 	other: [
-	{
-		workers: [],
-		keybindings: [],
-		extensions: []
-	}
+		{
+			workers: [],
+			keybindings: [],
+			extensions: []
+		}
 	]
 });
 
