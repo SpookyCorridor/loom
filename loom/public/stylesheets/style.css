@@ -1,1 +1,1 @@
-body{padding:50px;font:14px "Lucida Grande",Helvetica,Arial,sans-serif}a{color:#00B7FF}#options{background-color:tomato}#editor{height:300px}#chat{background-color:aliceblue}.MyCursorClass{position:absolute;border-left:2px solid gold}
+#editor{height:500px}#chat{background-color:aliceblue;height:500px}.MyCursorClass{position:absolute;border-left:2px solid gold}#nav{text-align:center}#nav ul{margin:0;padding:0}#nav li{display:inline;background-color:tomato;height:40px;border:1px solid #373232}

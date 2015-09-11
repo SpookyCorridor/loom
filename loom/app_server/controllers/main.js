@@ -1,6 +1,10 @@
 /* GET home page */
+
+
 module.exports.index = function(req, res){
-	res.render('index', { title: 'Express'}); 
+	console.log(themes);
+	console.log('test');
+	res.render('index', { title: 'Express'});
 };
 
 module.exports.gallery = function(req,res){

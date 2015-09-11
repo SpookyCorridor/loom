@@ -6,7 +6,8 @@ $(document).ready(function(){
 	window.editor = ace.edit("editor");
 	window.aceDocument = window.editor.session.getDocument(); 
 	window.aceSession = ace.createEditSession(window.aceDocument); 
-	window.editor.setTheme("ace/theme/monokai");
+	window.editor.setTheme("ace/theme/tomorrow");
+  window.themes = window.editor.getThemeList("ace/theme/*");
   window.editor.getSession().setMode("ace/mode/javascript");
   window.editor.cursors = function(){
   	new window.editor.selection.anchor(window.editor, 2,2); 
@@ -58,6 +59,6 @@ $(document).ready(function(){
 // call marker.session.removeMarker(marker.id) to remove it
 // call marker.redraw after changing one of cursors
   // 
-console.log(marker.session.addDynamicMarker(marker, true));
+//console.log(marker.session.addDynamicMarker(marker, true));
 	//window.aceSession.addDynamicMarker(window.marker, true); 
 }); 
