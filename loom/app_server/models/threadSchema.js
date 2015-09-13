@@ -7,7 +7,7 @@ var ThreadSchema = new mongoose.Schema({
 	content: String, 
 	theme: String,
 	language: String,
-	is_public: {type: boolean, default: true}
+	is_public: {type: Boolean, default: true}
 });
 
 module.exports = mongoose.model('Thread', ThreadSchema); 
