@@ -1,7 +1,11 @@
 Anchor = require('ace/anchor').Anchor 
-  
+var editorApp = angular.module("editorApp", []); 
 
-console.log('loaded');
+editorApp.controller("editorCtrl", function($scope){
+
+});   
+
+console.log('loaded');  
 $(document).ready(function(){
 	window.editor = ace.edit("editor");
 	window.aceDocument = window.editor.session.getDocument(); 

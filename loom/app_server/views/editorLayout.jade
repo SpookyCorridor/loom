@@ -1,0 +1,45 @@
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css")
+
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js")
+    script(src='bower_components/angular-modal-service/dst/angular-modal-service.min.js')
+    script(src="ace/ace.js" charset="utf-8")
+  body
+    header#nav.row
+      ul
+        li.col-md-3 logo
+        li.col-md-3 quickbar 
+        li.col-md-3 
+          button(type="button", class="btn tomato", data-toggle="modal", data-target="#settingsModal").
+              settings
+        li.col-md-3 gallery
+
+    div(class="modal fade", id="settingsModal", tabindex="-1", role="dialog", aria-labelledby="myModalLabel")
+      div(class="modal-dialog", role="document")
+        div.modal-content
+          div.modal-header
+            button(type="button", class="close", data-dismiss="modal", aria-label="close")
+              span(aria-hidden="true") &times;
+            h4(class="modal-title", id="myModalLabel").
+                Modal title 
+          div.modal-body
+            input(type="text", name="name", placeholder="name")
+            br 
+            select(name="theme")
+              option(value="monokai") monokai 
+              option(value="tomorrow_night") tomorrow night
+            select(name="language")
+              option(value="css") css
+              option(value="javascript") javascript
+          div.modal-footer
+            button(type="button", class="btn btn-default" data-dismiss="modal").
+              close
+            button(type="button", class="btn btn-primary").
+              save changes
+    block content
+    
