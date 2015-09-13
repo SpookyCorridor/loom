@@ -8,7 +8,7 @@ module.exports.index = function(req, res){
 };
 
 module.exports.gallery = function(req,res){
-	res.render('gallery', {title: 'Gallery'}); 
+	res.render('gallery', { user: req.user, title: 'Gallery'}); 
 }; 
 
 module.exports.editor = function(req,res){
