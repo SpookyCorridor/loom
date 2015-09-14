@@ -8,6 +8,7 @@ var passport = require('passport');
 var expressSession = require('express-session'); 
 require('./app_server/models/db'); 
 var flash = require('connect-flash');
+var cors = require('cors');
 
 var routes = require('./app_server/routes/index');
 var users = require('./app_server/routes/users');
@@ -34,6 +35,7 @@ app.use(expressSession({secret           : 'shhitsasecret',
 app.use(passport.initialize());
 app.use(passport.session()); 
 app.use(flash()); 
+app.use(cors()); 
 
 app.use('/', routes);
 app.use('/users', users);

@@ -42,13 +42,13 @@ module.exports.deleteThread = function(req,res,next) {
 module.exports.themes = function(req,res,next) {
 	aceModel.find(function(err, ace) {
 		if (err) return err;
-		res.json(data.themes);
+		res.json(ace.themes);
 	});
 }
 
 module.exports.modes = function(req,res,next) {
 	aceModel.find(function(err, ace) {
 		if (err) return err;
-		res.json(data.modes);
+		res.json(ace.modes);
 	});
 }
