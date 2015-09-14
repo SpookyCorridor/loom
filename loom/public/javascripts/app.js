@@ -1,10 +1,10 @@
 var loomApp = angular.module('loomApp', ['ngRoute']);
 
-app.config(function($routeProvider) {
+loomApp.config(function($routeProvider) {
 	$routeProvider
-	.when('/editorz', {
+	.when('/test', {
 		controller: 'EditorController',
-		templateUrl '../../app_server/views/editor.jade'
+		templateUrl: '../../app_server/views/index.jade'
 	});
 
 });

@@ -6,10 +6,14 @@ html
 
     script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-route.min.js")
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js")
-    script(src='bower_components/angular-modal-service/dst/angular-modal-service.min.js')
-    script(src="ace/ace.js" charset="utf-8")
-  body
+    script(src="/ace/ace.js" charset="utf-8")
+    script(src="/javascripts/app.js")
+    script(src="/javascripts/editor.js") 
+    script(src="/javascripts/controllers/EditorController.js")
+    script(src="/javascripts/services/aceService.js")
+  body(ng-app="loomApp")
     header#nav.row
       ul
         li.col-md-3 logo

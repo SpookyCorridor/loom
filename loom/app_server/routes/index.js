@@ -21,7 +21,7 @@ router.get('/gallery', isAuthenticated, ctrlMain.gallery);
 router.get('/editor', ctrlMain.editor);
 
 
-// api 
+//========api=========== 
 router.get('/api/v1/gallery', ctrlApi.gallery);
 router.post('/api/v1/gallery', ctrlApi.createThread);
 router.get('/api/v1/gallery/:id', ctrlApi.getThread); 
@@ -38,6 +38,11 @@ router.post('/login', ctrlUser.loginPost);
 router.get('/signup', ctrlUser.signup);
 router.post('/signup', ctrlUser.signupPost); 
 router.get('/logout', ctrlUser.logout);
+
+//editor
+router.get('/api/v1/ace/themes', ctrlApi.themes);
+router.get('/api/v1/ace/modes', ctrlApi.modes); 
+
 
 
 

@@ -1,9 +1,9 @@
 Anchor = require('ace/anchor').Anchor 
-var editorApp = angular.module("editorApp", []); 
+// var editorApp = angular.module("editorApp", []); 
 
-editorApp.controller("editorCtrl", function($scope){
+// editorApp.controller("editorCtrl", function($scope){
 
-});   
+// });   
 
 console.log('loaded');  
 $(document).ready(function(){
@@ -11,7 +11,6 @@ $(document).ready(function(){
 	window.aceDocument = window.editor.session.getDocument(); 
 	window.aceSession = ace.createEditSession(window.aceDocument); 
 	window.editor.setTheme("ace/theme/tomorrow");
-  window.themes = window.editor.getThemeList("ace/theme/*");
   window.editor.getSession().setMode("ace/mode/javascript");
   window.editor.cursors = function(){
   	new window.editor.selection.anchor(window.editor, 2,2); 
