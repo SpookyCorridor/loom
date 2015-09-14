@@ -2,9 +2,7 @@
 
 
 module.exports.index = function(req, res){
-	console.log(themes);
-	console.log('test');
-	res.render('index', { title: 'Express'});
+	res.render('index');
 };
 
 module.exports.gallery = function(req,res){
@@ -12,5 +10,5 @@ module.exports.gallery = function(req,res){
 }; 
 
 module.exports.editor = function(req,res){
-	res.render('editor', {title: 'Editor'});
+	res.render('editor');
 }; 
