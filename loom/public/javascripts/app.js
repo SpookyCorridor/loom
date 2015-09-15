@@ -4,7 +4,11 @@ loomApp.config(function($routeProvider) {
 	$routeProvider
 	.when('/editor', {
 		controller: 'EditorController',
-		templateUrl: '../../app_server/views/register.jade'
+		templateUrl: 'partials/editor'
+	})
+	.when('/editor/settings', {
+		controller: 'EditorController',
+		templateUrl: 'partials/modal'
 	});
 
 });

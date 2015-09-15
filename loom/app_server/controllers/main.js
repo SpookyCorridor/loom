@@ -10,5 +10,5 @@ module.exports.gallery = function(req,res){
 }; 
 
 module.exports.editor = function(req,res){
-	res.render('editor');
+	res.render('partials/editor');
 }; 

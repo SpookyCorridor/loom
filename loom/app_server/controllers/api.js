@@ -1,6 +1,6 @@
 var threadModel = require('../models/threadSchema');
 var bodyParser = require('body-parser'); 
-var aceModel = require('../models/aceSchema'); 
+var fs = require('fs'); 
 
 module.exports.gallery = function(req,res,next) {
 	threadModel.find(function(err, threads) {
@@ -40,15 +40,19 @@ module.exports.deleteThread = function(req,res,next) {
 
 //------ aceSchema CRUD -------- 
 module.exports.themes = function(req,res,next) {
-	aceModel.find(function(err, ace) {
-		if (err) return err;
-		res.json(ace.themes);
+	var obj;
+		fs.readFile('./aceThemes.json', 'utf8', function (err, data) {
+	  if (err) throw err;
+	  obj = JSON.parse(data);
+	  res.json(obj); 
 	});
 }
 
 module.exports.modes = function(req,res,next) {
-	aceModel.find(function(err, ace) {
-		if (err) return err;
-		res.json(ace.modes);
+	var obj;
+		fs.readFile('./aceModes.json', 'utf8', function (err, data) {
+	  if (err) throw err;
+	  obj = JSON.parse(data);
+	  res.json(obj); 
 	});
 }

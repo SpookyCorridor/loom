@@ -49,6 +49,10 @@ router.get('/logout', ctrlUser.logout);
 router.get('/api/v1/ace/themes', ctrlApi.themes);
 router.get('/api/v1/ace/modes', ctrlApi.modes); 
 
-
+//lets angular templates call jade files 
+router.get('/partials/:name', function (req, res)
+ { var name = req.params.name;
+   res.render('partials/' + name);
+});
 
 

@@ -1,4 +1,4 @@
-loomApp.controller('EditorController', ['$scope', 'ace', function($scope, ace) {
+loomApp.controller('EditorController', ['$scope', 'ace', '$document',function($scope, ace, $document) {
 	ace.themes(function(data) {
 		$scope.themes = data;
 		console.log('loaded' + data); 
