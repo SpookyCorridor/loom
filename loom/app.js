@@ -9,12 +9,27 @@ var expressSession = require('express-session');
 require('./app_server/models/db'); 
 var flash = require('connect-flash');
 var cors = require('cors');
-
 var routes = require('./app_server/routes/index');
 var users = require('./app_server/routes/users');
 var initPassword = require('./app_server/passport/init');
 initPassword(passport);
 var app = express();
+var server = require('http').createServer(app);
+var io = require('socket.io')(server);  
+var port = process.env.PORT || 3000;
+
+server.listen(port, function () {
+  console.log('Server listening at port %d', port);
+});
+
+//sockets
+io.on('connection', function (socket) {
+  console.log('yay connection'); 
+  // socket.emit('news', { hello: 'world' });
+  // socket.on('my other event', function (data) {
+  //   console.log(data);
+  // });
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'app_server', 'views'));
@@ -71,6 +86,7 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+
 
 
 module.exports = app;
