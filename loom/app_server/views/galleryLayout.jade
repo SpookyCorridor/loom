@@ -1,0 +1,14 @@
+html
+  head
+  include partials/head 
+  body(ng-app="loomApp")
+    header#nav.row
+      ul
+        li.col-md-3 logo
+        li.col-md-3 new thread 
+        li.col-md-3 
+        li.col-md-3 account 
+        include partials/modal 
+  block content 
+  ng-view
+  include partials/angScripts
