@@ -1,13 +1,7 @@
 html
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css")
-
-    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js")
-    script(src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.min.js")
-    script(src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-route.min.js")
-    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js")
+    include partials/head
   body(ng-app="loomApp")
     header#nav.row
       ul
@@ -18,13 +12,8 @@ html
            settings
         li.col-md-3 gallery
         include partials/modal 
-      block content 
+    block content 
     ng-view
-    script(src="ace/ace.js" charset="utf-8")
-    script(src="/javascripts/editor.js")
-    script(src="/javascripts/app.js")
-    
-  
-    script(src="/javascripts/controllers/EditorController.js")
+    include partials/angScripts
     
     
