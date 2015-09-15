@@ -10,8 +10,7 @@ div(ng-controller="EditorController" class="modal fade", id="settingsModal", tab
             input(type="text", name="name", placeholder="name")
             br 
             select(ng-options="theme as theme.name for theme in themes" ng-model="currentTheme" ng-change="setTheme()")
-            select(name="language")
-              option(ng-repeat="mode in modes" value="mode.name") {{mode.name}}
+            select(ng-options="mode as mode.name for mode in modes" ng-model="currentMode" ng-change="setMode()")
           div.modal-footer
             button(type="button", class="btn btn-default" data-dismiss="modal").
               close

@@ -31,6 +31,13 @@ loomApp.controller('EditorController', ['$scope', 'aceFactory', '$document',func
 		window.editor.setTheme("ace/theme/" + $scope.currentTheme.name);
 	}
 
+	$scope.setMode = function() {
+		console.log($scope.currentMode); 
+		window.editor.getSession().setMode("ace/mode/" + $scope.currentMode.name);
+	}
+
+
+
 
 
 }])
