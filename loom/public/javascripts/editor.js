@@ -43,9 +43,7 @@ app.editor.getSession().on('change', function(e){
     app.state = app.editor.getSession().getValue();  
     console.log('cur app state is' + app.state); 
     socket.emit('change', {change: [e], state: app.state }); 
-  
- 
-  
+   
 }); 
 
 // on change add to a empty array and push that to the socket servr 

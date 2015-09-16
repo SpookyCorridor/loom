@@ -28,12 +28,12 @@ loomApp.controller('EditorController', ['$scope', 'aceFactory', '$document',func
 
 	$scope.setTheme = function() {
 		console.log($scope.currentTheme); 
-		window.editor.setTheme("ace/theme/" + $scope.currentTheme.name);
+		app.editor.setTheme("ace/theme/" + $scope.currentTheme.name);
 	}
 
 	$scope.setMode = function() {
 		console.log($scope.currentMode); 
-		window.editor.getSession().setMode("ace/mode/" + $scope.currentMode.name);
+		app.editor.getSession().setMode("ace/mode/" + $scope.currentMode.name);
 	}
 
 
