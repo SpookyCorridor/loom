@@ -27,7 +27,7 @@ loomApp.controller('EditorController', ['$scope', 'aceFactory', '$document',func
 	$scope.currentMode = 'javascript'; 
 	$scope.softTabs = false; 
 	$scope.gutter = false; 
-	$scope.fontSize = 12; 
+	$scope.tabb = 'tab size';  
 	$scope.tabSize = 4; 
 
 	$scope.setTheme = function() {

@@ -23,6 +23,7 @@ var socket = io.connect('http://localhost:3000');
 var users = {};  
 app.updated = {};
 app.state = []; 
+app.limit = 0; 
 
 socket.on('update', function (data) {
   //console.log('update change client: ' + data);
@@ -39,11 +40,13 @@ socket.on('new', function(user) {
 });
 
 app.editor.getSession().on('change', function(e){ 
-  
-    app.state = app.editor.getSession().getValue();  
-    console.log('cur app state is' + app.state); 
-    socket.emit('change', {change: [e], state: app.state }); 
-   
+    // app.limit += e.length; 
+    // if (app.limit > 3) {
+      app.state = app.editor.getSession().getValue();  
+      console.log('cur app state is' + app.state); 
+      socket.emit('change', {change: [e], state: app.state }); 
+      app.limit = 0;
+    //} 
 }); 
 
 // on change add to a empty array and push that to the socket servr 
