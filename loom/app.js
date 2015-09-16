@@ -21,14 +21,26 @@ var port = process.env.PORT || 3000;
 server.listen(port, function () {
   console.log('Server listening at port %d', port);
 });
+//socketio variables 
+var iostate = iostate || {}; 
+var connected = 0; 
+var people = {}; 
 
 //sockets
-io.on('connection', function (socket) {
-  console.log('yay connection'); 
-  // socket.emit('news', { hello: 'world' });
-  // socket.on('my other event', function (data) {
-  //   console.log(data);
-  // });
+io.on('connection', function (client) {
+
+    connected +=1; 
+    people[client.id] = 'user'+connected;
+    client.emit('new', people[client.id] + 'has connected');
+
+  client.on('change', function (data) {
+    console.log('the server state is ' + data); 
+    client.broadcast.emit('update', data); 
+  });
+
+  client.on('disconnect', function() {
+    delete people[client.id]; 
+  })
 });
 
 // view engine setup

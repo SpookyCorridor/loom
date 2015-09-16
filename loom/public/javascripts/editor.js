@@ -16,6 +16,41 @@ $(document).ready(function(){
   	new window.editor.selection.anchor(window.editor, 2,2); 
   }
 
+var socket = io.connect('http://localhost:3000');
+
+var users = {}; 
+window.state = {};  
+window.updated = {};
+
+socket.on('update', function (data) {
+  console.log('update change client: ' + data);
+  console.log('update client state: ' + window.state);
+  if (window.state !== data) {
+    console.log('should update'); 
+    window.editor.getSession().setValue(data);
+  }
+});
+
+socket.on('new', function(user) {
+  console.log(user); 
+});
+
+window.editor.getSession().on('change', function(){ 
+  function setChange() {
+    window.state = window.editor.getSession().getValue(); 
+    socket.emit('change', window.state); 
+  }
+  window.setTimeout(setChange, 200);
+  
+}); 
+
+// on change add to a empty array and push that to the socket servr 
+
+
+
+
+
+
   //http://stackoverflow.com/questions/24807066/multiple-cursors-in-ace-editor
 //   var marker = {}
 // marker.cursors = [{row: 0, column: 10}]
