@@ -34,7 +34,6 @@ io.on('connection', function (client) {
     client.emit('new', people[client.id] + 'has connected');
 
   client.on('change', function (data) {
-    console.log('the server state is ' + data); 
     client.broadcast.emit('update', data); 
   });
 

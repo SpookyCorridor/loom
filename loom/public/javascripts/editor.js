@@ -5,29 +5,32 @@ Anchor = require('ace/anchor').Anchor
 
 // });   
 
+var app = app || {};
+
 console.log('loaded');  
 $(document).ready(function(){
-	window.editor = ace.edit("editor");
-	window.aceDocument = window.editor.session.getDocument(); 
-	window.aceSession = ace.createEditSession(window.aceDocument); 
-	window.editor.setTheme("ace/theme/tomorrow");
-  window.editor.getSession().setMode("ace/mode/javascript");
-  window.editor.cursors = function(){
-  	new window.editor.selection.anchor(window.editor, 2,2); 
+	app.editor = ace.edit("editor");
+	app.aceDocument = app.editor.session.getDocument(); 
+	app.aceSession = ace.createEditSession(app.aceDocument); 
+	app.editor.setTheme("ace/theme/tomorrow");
+  app.editor.getSession().setMode("ace/mode/javascript");
+  app.editor.cursors = function(){
+  	new app.editor.selection.anchor(app.editor, 2,2); 
   }
 
 var socket = io.connect('http://localhost:3000');
 
-var users = {}; 
-window.state = {};  
-window.updated = {};
+var users = {};  
+app.updated = {};
+app.state = []; 
 
 socket.on('update', function (data) {
-  console.log('update change client: ' + data);
-  console.log('update client state: ' + window.state);
-  if (window.state !== data) {
-    console.log('should update'); 
-    window.editor.getSession().setValue(data);
+  //console.log('update change client: ' + data);
+  //console.log('update client state: ' + app.state);
+  console.log('this is the ' + data.state); 
+  //console.log('wtf ' + app.state); 
+  if (data.state !== app.state) {
+    app.aceDocument.applyDeltas(data.change);
   }
 });
 
@@ -35,12 +38,13 @@ socket.on('new', function(user) {
   console.log(user); 
 });
 
-window.editor.getSession().on('change', function(){ 
-  function setChange() {
-    window.state = window.editor.getSession().getValue(); 
-    socket.emit('change', window.state); 
-  }
-  window.setTimeout(setChange, 200);
+app.editor.getSession().on('change', function(e){ 
+  
+    app.state = app.editor.getSession().getValue();  
+    console.log('cur app state is' + app.state); 
+    socket.emit('change', {change: [e], state: app.state }); 
+  
+ 
   
 }); 
 
@@ -91,12 +95,12 @@ window.editor.getSession().on('change', function(){
 //     // trigger redraw
 //     marker.redraw()
 // }
-// marker.session = window.aceSession;
+// marker.session = app.aceSession;
 // marker.session.addDynamicMarker(marker, true);
 // marker.addCursor(); 
 // call marker.session.removeMarker(marker.id) to remove it
 // call marker.redraw after changing one of cursors
   // 
 //console.log(marker.session.addDynamicMarker(marker, true));
-	//window.aceSession.addDynamicMarker(window.marker, true); 
+	//app.aceSession.addDynamicMarker(app.marker, true); 
 }); 
