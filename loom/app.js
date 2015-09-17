@@ -25,16 +25,18 @@ server.listen(port, function () {
 var iostate = iostate || {}; 
 var connected = 0; 
 var people = {}; 
-var history = {};
+var history;  
 //sockets
 io.on('connection', function (client) {
 
     connected +=1; 
     people[client.id] = 'user'+connected;
     client.emit('new', people[client.id] + 'has connected');
-
+    if (history) {
+      client.emit('setCanvas', history); 
+   }
   client.on('change', function (data) {
- 
+    history = data.state; 
     client.broadcast.emit('update', data); 
   
   });

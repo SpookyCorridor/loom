@@ -26,6 +26,9 @@ app.state = [];
 app.changes = [];
 app.block = {};  
 
+socket.on('setCanvas', function(data) {
+  app.editor.setValue(data); 
+})
 socket.on('update', function (data) {
   //console.log('update change client: ' + data);
   //console.log('update client state: ' + app.state);
@@ -35,7 +38,7 @@ socket.on('update', function (data) {
   //app.test = data.change; 
   if (app.editor.getValue() !== data.state) {
     app.block = data.state; 
-    console.log('update change is: ' + JSON.stringify(data.change));
+    //console.log('update change is: ' + JSON.stringify(data.change));
     app.aceDocument.applyDeltas(data.change); 
   } 
 });
