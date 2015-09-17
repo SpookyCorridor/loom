@@ -4,35 +4,40 @@ div(ng-controller="EditorController" class="modal fade", id="settingsModal", tab
       div.modal-header
         button(type="button", class="close", data-dismiss="modal", aria-label="close")
           span(aria-hidden="true") &times;
-        h4(class="modal-title", id="myModalLabel").
+        h5(class="modal-title", id="myModalLabel").
             Modal title 
       div.modal-body
-        input(type="text", name="name", placeholder="name")
-        br 
-        div.row
+        div.row 
+          div(class="col-sm-3")
+            input(type="text", name="name", placeholder="name")
+          div(class="col-sm-6")
+            input(type="password", name="password", placeholder="password")
+        div.modal-body 
           div(class="col-sm-6")
             select(ng-options="theme as theme.name for theme in themes" ng-model="currentTheme" ng-change="setTheme()" class="form-control")
               option(value="" disabled)|themes
           div(class="col-sm-6")
             select(ng-options="mode as mode.name for mode in modes" ng-model="currentMode" ng-change="setMode()" class="form-control")
               option(value="" disabled)|modes
-        div.row 
-          div(class="col-sm-6")
+        div.modal-body 
+          div(class="col-sm-3")
             div.checkbox
               label 
                 input(type="checkbox" name="softTabs" ng-model="softTabs" ng-true-value="1" ng-false-value="0" ng-change="setSoftTabs()")
                 | tabs
-          div(class="col-sm-6")
+          div(class="col-sm-3")
             select(class="form-control" ng-model="tabSize" ng-change="setTabSize()" name="tabsize")
               option(value="2") 2 
               option(value="4") 4
-        div.checkbox      
-          label
-            input(type="checkbox" name="gutter" ng-model="gutter" ng-true-value="1" ng-false-value="0" ng-change="setGutter()") 
-            | gutter 
-        |font size: 
-        input(class="btn btn-default btn-sm" type="button" value="+" ng-click="increaseFont()")
-        input(class="btn btn-default btn-sm" type="button" value="-" ng-click="decreaseFont()")
+          div(class="col-sm-3")
+            div.checkbox      
+              label
+                input(type="checkbox" name="gutter" ng-model="gutter" ng-true-value="1" ng-false-value="0" ng-change="setGutter()") 
+                | gutter 
+          div(class="col-sm-3")
+            |font size: 
+            input(class="btn btn-default btn-xs" type="button" value="+" ng-click="increaseFont()")
+            input(class="btn btn-default btn-xs" type="button" value="-" ng-click="decreaseFont()")
       div.modal-footer
         button(type="button", class="btn btn-default" data-dismiss="modal").
           done

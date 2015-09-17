@@ -23,15 +23,19 @@ var socket = io.connect('http://localhost:3000');
 var users = {};  
 app.updated = {};
 app.state = []; 
-app.limit = 0; 
+app.limit = 1; 
 
 socket.on('update', function (data) {
   //console.log('update change client: ' + data);
   //console.log('update client state: ' + app.state);
-  console.log('this is the ' + data.state); 
+  //console.log('this is the ' + data.state); 
+  console.log('the change is' + JSON.stringify(data.change));
   //console.log('wtf ' + app.state); 
+  
   if (data.state !== app.state) {
+    console.log('update ' + app.limit)
     app.aceDocument.applyDeltas(data.change);
+    app.limit = 1; 
   }
 });
 
@@ -41,11 +45,12 @@ socket.on('new', function(user) {
 
 app.editor.getSession().on('change', function(e){ 
     // app.limit += e.length; 
-    // if (app.limit > 3) {
+     if (app.limit = 1) {
       app.state = app.editor.getSession().getValue();  
       console.log('cur app state is' + app.state); 
       socket.emit('change', {change: [e], state: app.state }); 
       app.limit = 0;
+    }
     //} 
 }); 
 
