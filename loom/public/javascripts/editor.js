@@ -23,19 +23,25 @@ var socket = io.connect('http://localhost:3000');
 var users = {};  
 app.updated = {};
 app.state = []; 
-app.limit = 1; 
+app.changes = []; 
 
 socket.on('update', function (data) {
   //console.log('update change client: ' + data);
   //console.log('update client state: ' + app.state);
   //console.log('this is the ' + data.state); 
-  console.log('the change is' + JSON.stringify(data.change));
+  //console.log('the change is' + JSON.stringify(data.change));
   //console.log('wtf ' + app.state); 
+  //app.test = data.change; 
   
-  if (data.state !== app.state) {
-    console.log('update ' + app.limit)
+    console.log('update track ****');
+    console.log(app.editor.getValue());
+    console.log(data.state); 
+    if (data.state !== app.editor.getValue()) {
     app.aceDocument.applyDeltas(data.change);
-    app.limit = 1; 
+    app.history = data.change; 
+    console.log(app.history);
+    console.log(data.change); 
+    app.changes = []; 
   }
 });
 
@@ -43,18 +49,25 @@ socket.on('new', function(user) {
   console.log(user); 
 });
 
-app.editor.getSession().on('change', function(e){ 
-    // app.limit += e.length; 
-     if (app.limit = 1) {
-      app.state = app.editor.getSession().getValue();  
-      console.log('cur app state is' + app.state); 
-      socket.emit('change', {change: [e], state: app.state }); 
-      app.limit = 0;
-    }
+app.aceSession.on('change', function(e){   
+      app.changes.push(e); 
+      if (app.changes.length > 2) { 
+        console.log('**********onchange');
+        console.log(app.changes);
+        console.log(app.history);
+        app.state = app.editor.getValue(); 
+        //console.log(JSON.stringify(app.changes) == JSON.stringify(app.history));
+        if (JSON.stringify(app.changes) !== JSON.stringify(app.history)) {
+          socket.emit('change', {change: app.changes, state: app.state });
+          app.history = app.changes; 
+          app.changes = []; 
+        } 
+     } 
     //} 
 }); 
 
-// on change add to a empty array and push that to the socket servr 
+//push delta to array and send on x length 
+// cache socket data 
 
 
 

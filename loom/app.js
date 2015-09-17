@@ -25,7 +25,7 @@ server.listen(port, function () {
 var iostate = iostate || {}; 
 var connected = 0; 
 var people = {}; 
-
+var history = {};
 //sockets
 io.on('connection', function (client) {
 
@@ -34,7 +34,9 @@ io.on('connection', function (client) {
     client.emit('new', people[client.id] + 'has connected');
 
   client.on('change', function (data) {
+ 
     client.broadcast.emit('update', data); 
+  
   });
 
   client.on('disconnect', function() {
