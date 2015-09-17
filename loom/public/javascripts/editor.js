@@ -23,7 +23,8 @@ var socket = io.connect('http://localhost:3000');
 var users = {};  
 app.updated = {};
 app.state = []; 
-app.changes = []; 
+app.changes = [];
+app.block = {};  
 
 socket.on('update', function (data) {
   //console.log('update change client: ' + data);
@@ -32,17 +33,11 @@ socket.on('update', function (data) {
   //console.log('the change is' + JSON.stringify(data.change));
   //console.log('wtf ' + app.state); 
   //app.test = data.change; 
-  
-    console.log('update track ****');
-    console.log(app.editor.getValue());
-    console.log(data.state); 
-    if (data.state !== app.editor.getValue()) {
-    app.aceDocument.applyDeltas(data.change);
-    app.history = data.change; 
-    console.log(app.history);
-    console.log(data.change); 
-    app.changes = []; 
-  }
+  if (app.editor.getValue() !== data.state) {
+    app.block = data.state; 
+    console.log('update change is: ' + JSON.stringify(data.change));
+    app.aceDocument.applyDeltas(data.change); 
+  } 
 });
 
 socket.on('new', function(user) {
@@ -50,20 +45,10 @@ socket.on('new', function(user) {
 });
 
 app.aceSession.on('change', function(e){   
-      app.changes.push(e); 
-      if (app.changes.length > 2) { 
-        console.log('**********onchange');
-        console.log(app.changes);
-        console.log(app.history);
-        app.state = app.editor.getValue(); 
-        //console.log(JSON.stringify(app.changes) == JSON.stringify(app.history));
-        if (JSON.stringify(app.changes) !== JSON.stringify(app.history)) {
-          socket.emit('change', {change: app.changes, state: app.state });
-          app.history = app.changes; 
-          app.changes = []; 
-        } 
-     } 
-    //} 
+  app.state = app.editor.getValue(); 
+  if (app.state !== app.block) {
+  socket.emit('change', {state: app.state, change: [e]}); 
+}
 }); 
 
 //push delta to array and send on x length 
