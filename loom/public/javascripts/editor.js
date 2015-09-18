@@ -52,7 +52,23 @@ app.aceSession.on('change', function(e){
   if (app.state !== app.block) {
   socket.emit('change', {state: app.state, change: [e]}); 
 }
+
+
+
+$('#myTab a').click(function (e) {
+   e.preventDefault();
+   $(this).tab('show');
+});
+
+$(function () {
+$('#myTab a:last').tab('show');
 }); 
+
+}); 
+
+
+
+
 
 //push delta to array and send on x length 
 // cache socket data 

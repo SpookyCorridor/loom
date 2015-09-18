@@ -1,6 +1,4 @@
 extends ../editorLayout
 block content 
-	section(class="row" ng-controller="EditorController")
-		#editor.col-md-8
-		#chat.col-md-4
-			h3 chat
+	section(class="row table-row" ng-controller="EditorController")
+		#editor(class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 table-col")

@@ -3,15 +3,18 @@ html
     title= loom
     include partials/head
   body(ng-app="loomApp")
-    header#nav.row
-      ul
-        li.col-md-3 logo
-        li.col-md-3 settings
-        li.col-md-3 
-          button(data-toggle="modal", data-target="#settingsModal").
-           settings
-        li.col-md-3 gallery
-        include partials/modal 
+    div.container-fluid
+      nav(class="navbar navbar-default")
+        div.navbar-header
+          ul(class="nav navbar-nav row")
+            li
+              a(href="#" class="navbar-brand col-xs-1 col-xs-offset-1 col-sm-1")
+                strong Loom 
+            li 
+              a(href="#" class="col-xs-1 col-xs-offset-1 col-sm-1" data-toggle="modal", data-target="#settingsModal") settings
+            li
+              a(href="#" class="col-xs-1 col-xs-offset-1 col-sm-1") Gallery
+    include partials/modal 
     block content 
     ng-view
     include partials/angScripts
