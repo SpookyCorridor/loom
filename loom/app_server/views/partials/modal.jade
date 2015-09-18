@@ -28,7 +28,7 @@ div(ng-controller="EditorController" class="modal fade", id="settingsModal", tab
                 div.checkbox
                   label 
                     input(type="checkbox" name="softTabs" ng-model="softTabs" ng-true-value="1" ng-false-value="0" ng-change="setSoftTabs()")
-                    | tabs
+                    | soft tabs
               div(class="col-sm-6")
                 select(class="form-control" ng-model="tabSize" ng-change="setTabSize()" name="tabsize")
                   option(value="2") 2 
