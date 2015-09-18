@@ -22,7 +22,11 @@ Loom accomplishes this task using node and websocks with some angular sprinkled 
 
 =====
 
+<<<<<<< HEAD
 # links :paperclip:
+=======
+# :paperclip: links :paperclip:
+>>>>>>> 9c32b8b808207293b52bd0ad791c31ed7b947cdb
 
 [wireframe](https://github.com/SpookyCorridor/loom/tree/master/wireframes)
 
