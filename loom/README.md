@@ -14,8 +14,7 @@ Loom accomplishes this task using node and websocks with some angular sprinkled 
 - [intro](#intro)
 - [Installation](#installation)
 - [Gallery](#quiz-game)
-- [Gallery](#editor)
-- [API](#api)
+- [Editor](#editor)
 - [Technologies](#technologies)
 - [TODO](#todo)
 
@@ -25,29 +24,40 @@ Loom accomplishes this task using node and websocks with some angular sprinkled 
 
 [link to hosted project]()
 
-[wireframe]()
+[wireframe](https://github.com/SpookyCorridor/loom/tree/master/wireframes)
 
-[user stories]()
+[user stories](https://github.com/SpookyCorridor/loom/blob/master/userstories/userstories.md)
 
 # :star2: Intro :star2:
 
-  Loom Intro! 
+  Loom is my final project for school. It's an experiment and likely the most ambitious thing I've attempted yet.
+  Ultimately I want Loom to grow as a teaching tool and collaboration utility for small teams. Most of the 
+  current code playgrounds fail to fulfill a sense of control or true collaboration. Coding together in real time
+  instead of posting static shortlinks over and over just seems way more intuitive to me. 
 
 # :hourglass_flowing_sand: Installation :hourglass_flowing_sand:
 
-  installation instructions here 
+ - clone down the repository
+ - run node app.js inside the repository 
+ - enjoy! 
 
 # :game_die: Gallery :game_die:
 
-  Gallery overview here 
+  Gallery is currently under construction!
 
 # :game_die: Editor :game_die:
 
-  Editor overview here 
+## overview
 
-# :gift: API :gift:
+Loom's editor is built around the very powerful ACE library for a feature-rich experience. Each "thread" is an instance
+of the editor in which multiple users can join and collaborate in real-time. Current features of the editor include: 
 
-api stuff here 
+- Wide variety of supported language syntax
+- Wide variety (and soon to be expanded) set of themes to use
+- Fully functional gutter with linting 
+- auto-closing tags
+- soft tabs & tab size
+- adjustable font size 
 
 # :floppy_disk: Technologies :floppy_disk:
 
@@ -70,10 +80,11 @@ which is critical in an application that has real-time elements.
 
 # :coffee::coffee::coffee: TODO :coffee::coffee::coffee:
 - [ ] implement gallery
-- [ ] autosave feature
+- [ ] full autosave feature with threads tied to user accounts
 - [ ] UI improvements and overhaul
 - [ ] implement chat feature 
+- [ ] additional editor customization and bindings 
 
-## :rotating_light: Known Issues / Features To Be Added :rotating_light:
+## :rotating_light: Known Issues  :rotating_light:
 
 
