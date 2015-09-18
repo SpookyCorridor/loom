@@ -10,9 +10,9 @@ Loom accomplishes this task using node and websocks with some angular sprinkled 
 <img src="http://i.imgur.com/1hC75oQ.png">
 :notebook_with_decorative_cover: Table of Contents :notebook_with_decorative_cover:
 =================
-- [links](#:paperclip:)
-- [intro](#:star2:)
-- [Installation](#:hourglass_flowing_sand:)
+- [links](#Intro)
+- [intro](#Links)
+- [Installation](#Installation)
 - [Gallery](#:game_die:)
 - [Editor](#editor)
  - [Overview](#overview)
@@ -23,21 +23,21 @@ Loom accomplishes this task using node and websocks with some angular sprinkled 
 =====
 
 
-# :paperclip: links :paperclip:
+# Links :paperclip:
 
 
 [wireframe](https://github.com/SpookyCorridor/loom/tree/master/wireframes)
 
 [user stories](https://github.com/SpookyCorridor/loom/blob/master/userstories/userstories.md)
 
-# :star2: Intro :star2:
+# Intro :star2:
 
   Loom is my final project for school. It's an experiment and likely the most ambitious thing I've attempted yet.
   Ultimately I want Loom to grow as a teaching tool and collaboration utility for small teams. Most of the 
   current code playgrounds fail to fulfill a sense of control or true collaboration. Coding together in real time
   instead of posting static shortlinks over and over just seems way more intuitive to me. 
 
-# :hourglass_flowing_sand: Installation :hourglass_flowing_sand:
+# Installation :hourglass_flowing_sand:
 
  - clone down the repository
  - run node app.js inside the repository 
