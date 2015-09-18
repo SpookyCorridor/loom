@@ -1,5 +1,6 @@
 Loom 
 ===============
+<img src="" align="right" margin="10px" padding="10px"> 
 
 Loom is a code playground that lets multiple users work on the same file in real time. 
 It's intended as a new way to collaborate and teach. Essentially it's an experiment that 
@@ -7,7 +8,8 @@ attempts to be a hybrid of Google Docs and Codepen (or jsfiddle, jsbin, etc...)
 
 Loom accomplishes this task using node and websocks with some angular sprinkled in here and there. 
 
-<img src="http://i.imgur.com/1hC75oQ.png">
+<img src="full web ss here" height="500px" width="500px"> 
+
 :notebook_with_decorative_cover: Table of Contents :notebook_with_decorative_cover:
 =================
 - [links](#links)
@@ -15,14 +17,14 @@ Loom accomplishes this task using node and websocks with some angular sprinkled 
 - [Installation](#installation)
 - [Gallery](#quiz-game)
 - [Editor](#editor)
- - [Overview](#overview)
- - [Features](#features)
 - [Technologies](#technologies)
 - [TODO](#todo)
 
 =====
 
 # :paperclip: links :paperclip:
+
+[link to hosted project]()
 
 [wireframe](https://github.com/SpookyCorridor/loom/tree/master/wireframes)
 
@@ -31,9 +33,7 @@ Loom accomplishes this task using node and websocks with some angular sprinkled 
 # :star2: Intro :star2:
 
   Loom is my final project for school. It's an experiment and likely the most ambitious thing I've attempted yet.
-  Ultimately I want Loom to grow as a teaching tool and collaboration utility for small teams. Most of the 
-  current code playgrounds fail to fulfill a sense of control or true collaboration. Coding together in real time
-  instead of posting static shortlinks over and over just seems way more intuitive to me. 
+  Ultimately I want Loom to grow as a teaching tool and collaboration utility for small teams. 
 
 # :hourglass_flowing_sand: Installation :hourglass_flowing_sand:
 
@@ -52,20 +52,18 @@ Loom accomplishes this task using node and websocks with some angular sprinkled 
 Loom's editor is built around the very powerful ACE library for a feature-rich experience. Each "thread" is an instance
 of the editor in which multiple users can join and collaborate in real-time. 
 
-## features 
+### Problem 
 
-__Basic__
+Most of the current code playgrounds fail to fulfill a sense of control or true collaboration. Coding together in real time instead of posting static shortlinks over and over just seems way more intuitive to me. 
 
-Loom supports a wide variety of themes and language syntax 
+### Solution 
 
-<img src="http://i.imgur.com/L4o7ldZ.png"> 
 
-__Advanced__
 
-Loom's customization will always continue to improve 
+### current features 
 
-<img src="http://i.imgur.com/s3GKWnG.png">
-
+- Wide variety of supported language syntax
+- Wide variety (and soon to be expanded) set of themes to use
 - Fully functional gutter with linting 
 - auto-closing tags
 - soft tabs & tab size
@@ -91,6 +89,8 @@ I chose the MEAN stack because node and websockets play well together. They're a
 which is critical in an application that has real-time elements. 
 
 # :coffee::coffee::coffee: TODO :coffee::coffee::coffee:
+
+- [ ] host online 
 - [ ] implement gallery
 - [ ] full autosave feature with threads tied to user accounts
 - [ ] UI improvements and overhaul
