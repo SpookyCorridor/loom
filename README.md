@@ -10,10 +10,10 @@ Loom accomplishes this task using node and websocks with some angular sprinkled 
 <img src="http://i.imgur.com/1hC75oQ.png">
 :notebook_with_decorative_cover: Table of Contents :notebook_with_decorative_cover:
 =================
-- [links](#links)
-- [intro](#intro)
-- [Installation](#installation)
-- [Gallery](#quiz-game)
+- [links](#:paperclip:)
+- [intro](#:star2:)
+- [Installation](#:hourglass_flowing_sand:)
+- [Gallery](#:game_die:)
 - [Editor](#editor)
  - [Overview](#overview)
  - [Features](#features)
@@ -22,11 +22,9 @@ Loom accomplishes this task using node and websocks with some angular sprinkled 
 
 =====
 
-<<<<<<< HEAD
-# links :paperclip:
-=======
+
 # :paperclip: links :paperclip:
->>>>>>> 9c32b8b808207293b52bd0ad791c31ed7b947cdb
+
 
 [wireframe](https://github.com/SpookyCorridor/loom/tree/master/wireframes)
 
