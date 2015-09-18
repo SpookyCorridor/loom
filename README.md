@@ -45,11 +45,11 @@ Loom accomplishes this task using node and websocks with some angular sprinkled 
  - run node app.js inside the repository 
  - enjoy! 
 
-# Gallery :game_die:
+# Gallery
 
   Gallery is currently under construction!
 
-# Editor :game_die:
+# Editor
 
 ## overview
 
