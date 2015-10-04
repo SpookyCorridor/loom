@@ -21,7 +21,7 @@ router.use(function(req, res, next) {
 });
 
 /* GET home page. */
-router.get('/', ctrlMain.index); 
+router.get('/', ctrlMain.editor); 
 router.get('/gallery', isAuthenticated, ctrlMain.gallery);
 //TODO: change to accept an id after testing 
 router.get('/editor', ctrlMain.editor);
