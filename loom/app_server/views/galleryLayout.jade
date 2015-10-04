@@ -1,14 +1,28 @@
 html
   head
-  include partials/head 
+    title= loom
+    include partials/head
   body(ng-app="loomApp")
-    header#nav.row
-      ul
-        li.col-md-3 logo
-        li.col-md-3 new thread 
-        li.col-md-3 
-        li.col-md-3 account 
-        include partials/modal 
-  block content 
-  ng-view
-  include partials/angScripts
+    div.container-fluid
+      nav(class="navbar navbar-default")
+        div.navbar-header
+          ul(class="nav navbar-nav row")
+            li
+              a(href="#" class="navbar-brand col-xs-1 col-xs-offset-1 col-sm-1")
+                strong Loom 
+            li 
+              a(href="#" class="col-xs-2 col-xs-offset-2 col-sm-2") new thread
+            li
+              a(href="#" class="col-xs-2 col-xs-offset-2 col-sm-2") existing
+      section(ng-controller="GalleryController as GalleryCtrl")
+        p(ng-model="test").
+          {{ test[0]._id }}
+        div(ng-repeat="thread in gallery")
+          div(class="threadThumb col-md-3")
+            h3 {{thread.name}}
+            p language: {{thread.language}}
+            p author: {{thread.created_by}}
+            input(type="button" class="btn primary-btn")
+    block content 
+    include partials/angScripts
+    include partials/galleryScripts

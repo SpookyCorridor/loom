@@ -30,8 +30,7 @@ $(document).ready(function(){
     app.editor.setValue(data); 
   })
 
-  socket.on('update', function (data) {
-    
+  socket.on('update', function (data) {  
     if (app.editor.getValue() !== data.state) {
       app.block = data.state; 
       app.aceDocument.applyDeltas(data.change); 
@@ -45,17 +44,8 @@ $(document).ready(function(){
   app.aceSession.on('change', function(e){   
     app.state = app.editor.getValue(); 
     if (app.state !== app.block) {
-    socket.emit('change', {state: app.state, change: [e]}); 
+      socket.emit('change', {state: app.state, change: [e]}); 
   }
-
-  $('#myTab a').click(function (e) {
-     e.preventDefault();
-     $(this).tab('show');
-  });
-
-  $(function () {
-  $('#myTab a:last').tab('show');
-  }); 
 
   }); 
 

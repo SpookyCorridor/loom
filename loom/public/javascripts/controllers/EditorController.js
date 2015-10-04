@@ -5,7 +5,7 @@ loomApp.controller('EditorController', ['$scope', 'aceFactory', '$document',func
 	function findThemes() {
 		aceFactory.getThemes()
 			.success(function(themes) {
-				console.log(themes); 
+				//console.log(themes); 
 				$scope.themes = themes; 
 			})
 			.error(function(err) {
@@ -19,8 +19,18 @@ loomApp.controller('EditorController', ['$scope', 'aceFactory', '$document',func
 				$scope.modes = modes; 
 			})
 			.error(function(err) {
-				console.log(err); 
+				//console.log(err); 
 			});
+	}
+
+	function createThread() {
+		aceFactory.createThread()
+			.success(function() {
+				console.log('thread created'); 
+			})
+			.error(function(err) {
+				console.log('error creating thread: ' + err ); 
+			})
 	}
 
 	$scope.currentTheme = 'monokai'; 

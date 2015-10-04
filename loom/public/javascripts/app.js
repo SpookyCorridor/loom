@@ -1,7 +1,8 @@
-var loomApp = angular.module('loomApp', ['ngRoute'])
+var loomApp = angular.module('loomApp', ['ngRoute', 'gallery-main'])
 	.factory('aceFactory', ['$http', function($http) {
-		var baseUrl = 'api/v1/ace/'
-		var aceFactory = {};
+		var baseUrl = 'api/v1/ace/',
+				threadBaseUrl = 'api/v1/gallery',
+				aceFactory = {};
 
 		aceFactory.getModes = function() {
 			return $http({
@@ -19,21 +20,26 @@ var loomApp = angular.module('loomApp', ['ngRoute'])
 			}); 
 		}
 
+		aceFactory.createThread = function() {
+			return $http({
+				method: 'PUT',
+				url: threadBaseUrl,
+				cache: false 
+			});
+		}
+
 		return aceFactory; 
 	}])
 
+// loomApp.config(function($routeProvider) {
+// 	$routeProvider
+// 	.when('/editor', {
+// 		controller: 'EditorController',
+// 		templateUrl: 'partials/editor'
+// 	})
+// 	.when('/editor/settings', {
+// 		controller: 'EditorController',
+// 		templateUrl: 'partials/modal'
+// 	});
 
-
-
-loomApp.config(function($routeProvider) {
-	$routeProvider
-	.when('/editor', {
-		controller: 'EditorController',
-		templateUrl: 'partials/editor'
-	})
-	.when('/editor/settings', {
-		controller: 'EditorController',
-		templateUrl: 'partials/modal'
-	});
-
-});
+// });
