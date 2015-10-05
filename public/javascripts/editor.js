@@ -18,7 +18,7 @@ $(document).ready(function(){
   	new app.editor.selection.anchor(app.editor, 2,2); 
   }
 
-  var socket = io.connect('http://localhost:3000');
+  var socket = io.connect('theloom.azurewebsites.net:80');
 
   var users = {};  
   app.updated = {};
